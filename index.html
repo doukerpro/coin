@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueSocial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        /* Sidebar styles */
+        .sidebar {
+            width: 200px;
+            background-color: #ffffff;
+            border-right: 1px solid #d3d3d3;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+        }
+        .sidebar h2 {
+            font-size: 1.2em;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .sidebar .category {
+            margin: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+        }
+        .sidebar .category:hover {
+            background-color: #c0c0c0;
+        }
+        /* Main content styles */
+        .main-content {
+            margin-left: 220px; /* Account for sidebar width */
+            padding: 20px;
+            width: calc(100% - 220px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .post-container {
+            width: 90%;
+            max-width: 600px;
+            background-color: white;
+            border: 1px solid #d3d3d3;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .username {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .verification-icon {
+            margin-left: 5px;
+            width: 1em;
+            height: 1em;
+        }
+        .post-text {
+            font-size: 1em;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+        }
+        .post-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kategorien</h2>
+        <div class="category" onclick="showContent('firmen')">Unternehmen</div>
+        <div class="category" onclick="showContent('politik')">Politik</div>
+        <div class="category" onclick="showContent('normal')">Öffentliches</div>
+        <div class="category" onclick="showContent('registrieren')">Registrieren lassen</div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <div class="post-container" id="content">
+            <div class="username">
+                UBS Group AG <img src="image33.png" alt="Verifiziert" class="verification-icon">
+            </div>
+            <div class="post-text">
+                Hey BlueSocial! Wilkommen auf meinem neuen BlueSocial Kanal.
+            </div>
+            <img src="image22.jpg" alt="Bild 1" class="post-image">
+        </div>
+    </div>
+
+    <script>
+        function showContent(category) {
+            // Logic to display different content based on the category clicked
+            const content = document.getElementById('content');
+            if (category === 'firmen') {
+                content.innerHTML = `
+                    <div class="username">
+                        UBS Group AG <img src="image33.png" alt="Verifiziert" class="verification-icon">
+                    </div>
+                    <div class="post-text">
+                        Hey BlueSocial! Wilkommen auf meinem neuen BlueSocial Kanal.
+                    </div>
+                    <img src="image22.jpg" alt="Bild 1" class="post-image">
+         
+
+                     <div class="username">
+                        Valiant Holding AG <img src="image33.png" alt="Verifiziert" class="verification-icon">
+                    </div>
+                    <div class="post-text">
+                        Das ist der Offizielle Valianz Holding AG Kanal
+                    </div>
+                    <img src="valiant.jpg" alt="Bild 1" class="post-image">
+                `;
+            } else if (category === 'politik') {
+                content.innerHTML = `
+                    <div class="username">
+                        Politik Kanal <img src="image33.png" alt="Verifiziert" class="verification-icon">
+                    </div>
+                    <div class="post-text">
+                        Willkommen auf dem BlueSocial Politik-Kanal.
+                    </div>
+                    <img src="image22.jpg" alt="Politik Bild" class="post-image">
+                `;
+            } else if (category === 'normal') {
+                content.innerHTML = `
+                    <div class="username">
+                        Normal User <img src="image33.png" alt="Verifiziert" class="verification-icon">
+                    </div>
+                    <div class="post-text">
+                        Willkommen auf dem Kanal für normale Benutzer!
+                    </div>
+                    <img src="image22.jpg" alt="Normal User Bild" class="post-image">
+                `;
+            } else if (category === 'registrieren') {
+                content.innerHTML = `
+                    <h3>Registrieren lassen</h3>
+                    <p>Hier können Sie sich für spezielle Funktionen registrieren lassen und Ihre Vorteile auf BlueSocial maximieren.</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
